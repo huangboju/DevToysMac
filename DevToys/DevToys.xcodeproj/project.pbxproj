@@ -191,6 +191,7 @@
 		B6E294B327C3351F00314132 /* FFTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E294B227C3351F00314132 /* FFTask.swift */; };
 		B6E294E527C337F300314132 /* FFThumnailGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E294E427C337F300314132 /* FFThumnailGenerator.swift */; };
 		B6ED863627BFE7DC00A17474 /* DefaultImageExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ED863527BFE7DC00A17474 /* DefaultImageExporter.swift */; };
+		EE0945772A3EF19A00D41381 /* DeeplinkConverterView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0945762A3EF19A00D41381 /* DeeplinkConverterView+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -416,6 +417,7 @@
 		B6E294B227C3351F00314132 /* FFTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFTask.swift; sourceTree = "<group>"; };
 		B6E294E427C337F300314132 /* FFThumnailGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFThumnailGenerator.swift; sourceTree = "<group>"; };
 		B6ED863527BFE7DC00A17474 /* DefaultImageExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImageExporter.swift; sourceTree = "<group>"; };
+		EE0945762A3EF19A00D41381 /* DeeplinkConverterView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeeplinkConverterView+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -451,6 +453,7 @@
 				B608541127A66A90003BF243 /* JSONYamlConverterView+.swift */,
 				B608541D27A67B48003BF243 /* NumberBaseConverterView+.swift */,
 				B64AA44F27AD0D3900EC436D /* DateConverterView+.swift */,
+				EE0945762A3EF19A00D41381 /* DeeplinkConverterView+.swift */,
 			);
 			path = Convert;
 			sourceTree = "<group>";
@@ -1215,6 +1218,7 @@
 				B6AC276A27AA535A000FD713 /* PDFGeneratorView+.swift in Sources */,
 				B608542027A67E4D003BF243 /* TextField.swift in Sources */,
 				B6A93D3427CBBC97003A6D7F /* IconTemplete.swift in Sources */,
+				EE0945772A3EF19A00D41381 /* DeeplinkConverterView+.swift in Sources */,
 				B67A4C5527C0EA84009277FB /* ACOverlayPanel.swift in Sources */,
 				B680A79A27A69324007CB707 /* URLDecoderView+.swift in Sources */,
 				B61157C327C8C78A004D77A5 /* JSONNormalSearchView.swift in Sources */,
@@ -1399,7 +1403,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 0.0.10;
-				DEVELOPMENT_TEAM = T5HMUWWK5R;
+				DEVELOPMENT_TEAM = 89SJ2SR7HV;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = DevToys/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

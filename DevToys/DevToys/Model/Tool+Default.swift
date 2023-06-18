@@ -40,7 +40,12 @@ extension Tool {
         sidebarTitle: "tool.date.mintitle".localized(), toolDescription: "tool.date.description".localized(),
         viewController: DateConverterViewController()
     )
-    
+    static let deeplinkConverter = Tool(
+        title: "tool.deeplink.title".localized(), identifier: "deeplink", category: .converter, icon: R.Image.Tool.dateConvert,
+        sidebarTitle: "tool.deeplink.mintitle".localized(), toolDescription: "tool.deeplink.description".localized(),
+        viewController: DeeplinkConverterViewController()
+    )
+
     // MARK: - Encoder / Decoder -
     static let htmlCoder = Tool(
         title: "tool.html.title".localized(), identifier: "html.converter", category: .encoderDecoder, icon: R.Image.Tool.htmlCoder,
@@ -189,6 +194,7 @@ extension ToolManager {
         toolManager.registerTool(.jsonYamlConverter)
         toolManager.registerTool(.numberBaseConverter)
         toolManager.registerTool(.dateConverter)
+        toolManager.registerTool(.deeplinkConverter)
 
         toolManager.registerTool(.htmlCoder)
         toolManager.registerTool(.urlCoder)

@@ -80,6 +80,10 @@
 "ISO 8601" = "ISO 8601";
 "Calender" = "カレンダー";
 
+"tool.deeplink.title" = "Deeplink Converter";
+"tool.deeplink.mintitle" = "Deeplink";
+"tool.deeplink.description" = "Convert Deeplink";
+
 "tool.html.title" = "HTMLのエンコード・デコード";
 "tool.html.mintitle" = "HTML";
 "tool.html.description" = "文字をHTMLエスケープ・アンエスケープします";

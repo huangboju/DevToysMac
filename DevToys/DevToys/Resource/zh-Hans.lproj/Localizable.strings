@@ -72,6 +72,10 @@
 "ISO 8601" = "ISO 8601";
 "Calender" = "日历";
 
+"tool.deeplink.title" = "Deeplink Converter";
+"tool.deeplink.mintitle" = "Deeplink";
+"tool.deeplink.description" = "Convert Deeplink";
+
 "tool.html.title" = "HTML 编码 / 解码";
 "tool.html.mintitle" = "HTML";
 "tool.html.description" = "将字符编码或解码为相应的HTML";
