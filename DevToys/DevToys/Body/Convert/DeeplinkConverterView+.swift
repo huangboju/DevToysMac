@@ -6,6 +6,7 @@
 //
 
 import CoreUtil
+import Alamofire
 
 struct Item {
     let title: String
@@ -28,6 +29,42 @@ class DeeplinkConverterViewController: NSViewController {
         cell.nowButton.actionPublisher.sink { [unowned self] in
             self.addDeeplinkCell()
         }.store(in: &objectBag)
+        
+//        fetchDeeplinkFile()
+    }
+    
+    func fetchDeeplinkFile() {
+        let destination: DownloadRequest.Destination = { _, _ in
+            let directory = self.directory
+
+            self.createDirectoryIfNeeded(directory)
+            
+            let fileURL = directory.appendingPathComponent("Package.swift")
+
+            return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
+        }
+
+        AF.download("https://raw.githubusercontent.com/Alamofire/Alamofire/master/Package.swift", to: destination).response { response in
+            debugPrint(response)
+
+            if response.error == nil, let imagePath = response.fileURL?.path {
+                print(imagePath)
+            }
+        }
+    }
+    
+    func createDirectoryIfNeeded(_ directory: URL) {
+        do {
+            try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
+        } catch let error {
+            print("❌\(error)")
+        }
+    }
+    
+    var directory: URL {
+        let fileManager = FileManager.default
+        let documentsURL = fileManager.urls(for: .cachesDirectory, in: .userDomainMask)[0]
+        return documentsURL.appendingPathComponent("com.bula.deeplink")
     }
     
     func addDeeplinkCell() {

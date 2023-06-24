@@ -192,6 +192,7 @@
 		B6E294E527C337F300314132 /* FFThumnailGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E294E427C337F300314132 /* FFThumnailGenerator.swift */; };
 		B6ED863627BFE7DC00A17474 /* DefaultImageExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ED863527BFE7DC00A17474 /* DefaultImageExporter.swift */; };
 		EE0945772A3EF19A00D41381 /* DeeplinkConverterView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0945762A3EF19A00D41381 /* DeeplinkConverterView+.swift */; };
+		EE21E3362A46DEDD00D0F67E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EE21E3352A46DEDD00D0F67E /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -430,6 +431,7 @@
 				B6113F0927C4C6C900ACC6E8 /* Sparkle in Frameworks */,
 				B608541527A66CC9003BF243 /* CoreUtil.framework in Frameworks */,
 				B680A79827A69268007CB707 /* HTMLEntities in Frameworks */,
+				EE21E3362A46DEDD00D0F67E /* Alamofire in Frameworks */,
 				B608541B27A672E3003BF243 /* Yams in Frameworks */,
 				B6B5728827ACD2F20069DBA7 /* Kanna in Frameworks */,
 				B66850F227A65FC200A3FE01 /* SwiftJSONFormatter in Frameworks */,
@@ -974,6 +976,7 @@
 				B6B5728727ACD2F20069DBA7 /* Kanna */,
 				B6113F0827C4C6C900ACC6E8 /* Sparkle */,
 				B684EA2527C5EFDB0014802F /* DiffMatchPatch */,
+				EE21E3352A46DEDD00D0F67E /* Alamofire */,
 			);
 			productName = DevToys;
 			productReference = B64B1E7027A4F5E200AC2601 /* DevToys.app */;
@@ -1016,6 +1019,7 @@
 				B6B5728627ACD2F20069DBA7 /* XCRemoteSwiftPackageReference "Kanna" */,
 				B6113F0727C4C6C900ACC6E8 /* XCRemoteSwiftPackageReference "Sparkle" */,
 				B684EA2427C5EFDB0014802F /* XCRemoteSwiftPackageReference "DiffMatchPatch" */,
+				EE21E3342A46DEDD00D0F67E /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = B64B1E7127A4F5E200AC2601 /* Products */;
 			projectDirPath = "";
@@ -1547,6 +1551,14 @@
 				minimumVersion = 2.1.2;
 			};
 		};
+		EE21E3342A46DEDD00D0F67E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.7.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1589,6 +1601,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B6D1AF0427A5603B0022FED2 /* XCRemoteSwiftPackageReference "Highlightr" */;
 			productName = Highlightr;
+		};
+		EE21E3352A46DEDD00D0F67E /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE21E3342A46DEDD00D0F67E /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
