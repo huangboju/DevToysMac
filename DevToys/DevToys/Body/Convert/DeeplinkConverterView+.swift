@@ -8,7 +8,11 @@
 import CoreUtil
 import Alamofire
 
-struct Item {
+struct DeeplinkModel: Codable {
+    let items: [Item]
+}
+
+struct Item: Codable {
     let title: String
     let deeplink: String
 
@@ -20,6 +24,8 @@ struct Item {
 class DeeplinkConverterViewController: NSViewController {
     private let cell = DeeplinkConverterView()
     
+    private var deeplinkModel: DeeplinkModel?
+    
     override func loadView() {
         view = cell
     }
@@ -30,7 +36,7 @@ class DeeplinkConverterViewController: NSViewController {
             self.addDeeplinkCell()
         }.store(in: &objectBag)
         
-//        fetchDeeplinkFile()
+        fetchDeeplinkFile()
     }
     
     func fetchDeeplinkFile() {
@@ -39,16 +45,26 @@ class DeeplinkConverterViewController: NSViewController {
 
             self.createDirectoryIfNeeded(directory)
             
-            let fileURL = directory.appendingPathComponent("Package.swift")
+            let fileURL = directory.appendingPathComponent("deeplink.json")
 
             return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
         }
 
-        AF.download("https://raw.githubusercontent.com/Alamofire/Alamofire/master/Package.swift", to: destination).response { response in
+        AF.download("https://raw.githubusercontent.com/huangboju/Actions/main/deeplink.json?token=GHSAT0AAAAAACC5BWYOO2Y6UYZYKUY6UAM6ZEWV7AA", to: destination).response { response in
             debugPrint(response)
 
-            if response.error == nil, let imagePath = response.fileURL?.path {
-                print(imagePath)
+            if response.error == nil, let filePath = response.fileURL?.path {
+                if #available(macOS 13.0, *) {
+                    do {
+                        let data = try Data(contentsOf: URL(filePath: filePath), options: .mappedIfSafe)
+                        let model = try JSONDecoder().decode(DeeplinkModel.self, from: data)
+                        self.deeplinkModel = model
+                    } catch {
+                        print(error)
+                    }
+                } else {
+                    // Fallback on earlier versions
+                }
             }
         }
     }
@@ -68,10 +84,12 @@ class DeeplinkConverterViewController: NSViewController {
     }
     
     func addDeeplinkCell() {
+        guard let deeplinkModel else { return }
+
         let string = cell.idField.string
         if string.isEmpty { return }
 
-        deeplinks.map { item -> TextFieldSection in
+        deeplinkModel.items.map { item -> TextFieldSection in
             let section = TextFieldSection(title: item.title, isEditable: false)
             section.string = item.deeplink(with: string)
             return section
@@ -79,15 +97,6 @@ class DeeplinkConverterViewController: NSViewController {
             cell.addSection($0)
         }
     }
-    
-    private lazy var deeplinks: [Item] = {
-        [
-            Item(title: "图文笔详", deeplink: "xhsdiscover://item/:id"),
-            Item(title: "视频笔详", deeplink: "xhsdiscover://item/:id?type=viedeo"),
-            Item(title: "笔记商详", deeplink: "xhsdiscover://mini_goods_detail/:id"),
-            Item(title: "主商详", deeplink: "xhsdiscover://goods_detail/:id"),
-        ]
-    }()
 }
 
 
